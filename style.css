@@ -1,155 +1,121 @@
-* {
-  box-sizing: border-box;
-}
-
+/* ==============================
+   MOBILE-FIRST STYLE.CSS
+   ============================== */
 body {
   font-family: Arial, sans-serif;
-  padding-top: 60px;
-  padding-bottom: 120px;
   margin: 0;
+  padding-top: 60px; /* space for header */
+  padding-bottom: 80px; /* space for footer + sticky button */
   background-color: #f9f9f9;
+  overflow-x: hidden;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+/* ==================== HEADER & FOOTER ==================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.header-logo {
+  position: absolute;
+  left: 10px;
+  height: 40px;
+}
+
+.header-title {
   font-weight: bold;
+  font-size: 18px;
 }
 
-/* Flex wrapper for sidebar + products */
-.catalogue-wrapper {
-  display: flex;
-  gap: 20px;
-}
-
-/* Sidebar styles */
-.sidebar {
-  width: 220px;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 8px;
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
   font-size: 14px;
-  position: sticky;
-  top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100vh;   /* full viewport height */
-position: sticky;
-top: 0;
+  z-index: 1000;
 }
 
-/* Sidebar sections */
-.sidebar-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.promises-section ul,
-.categories-section ul {
-  list-style: none;
-  padding-left: 5px;
-  max-height: 180px;
-  overflow-y: auto;
-  margin: 0;
-}
-
-.promises-section li,
-.categories-section li {
-  font-size: 14px;
-  line-height: 1.4;
-  margin-bottom: 6px;
-  padding: 3px 5px;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Sidebar hover effect */
-.promises-section li:hover,
-.categories-section li:hover {
-  background-color: #e6f0ff;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* Product Section */
+/* ==================== PRODUCT SECTION ==================== */
 .product-section {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
 }
 
-/* Product Grid */
+/* Product container vertical */
 .product-container {
   display: flex;
-  flex-direction: column; /* add this */
-  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
 }
-
 
 /* Product Card */
 .product {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 30px;
-  text-align: center;
-  width: 300px;
+  width: 90%;
+  max-width: 400px;
+  min-height: calc(100vh - 140px); /* viewport minus header/footer */
   background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+  box-sizing: border-box;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 60px; /* avoid last product hiding behind button */
 }
 
-/* Product hover effect */
-.product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Product image */
 .product img {
-  width: 200px;
+  width: 100%;
   height: 200px;
   object-fit: contain;
+  border-radius: 6px;
   background-color: #fff;
-  margin: 0 auto 5px;
-  border-radius: 5px;
 }
 
-/* Product name */
 .product p {
   font-weight: bold;
-  margin: 5px 0;
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
 }
 
-/* Size-row for product variants */
+/* Size-row */
 .size-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  padding: 6px 10px;
-  margin: 6px 0;
   background-color: #fdfdfd;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-  transition: all 0.2s ease-in-out;
 }
 
-/* Size-row hover effect */
-.size-row:hover {
-  background-color: #eef6ff;
-  border-color: #007bff;
-}
-
-/* Size price line */
 .size-price-line {
   font-weight: bold;
-  flex: 1;
   font-size: 14px;
 }
 
-/* Quantity input */
 .size-row input.qty {
   width: 50px;
   text-align: center;
@@ -157,10 +123,8 @@ top: 0;
   padding: 2px 4px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  transition: all 0.2s ease-in-out;
 }
 
-/* Active/focused quantity */
 .qty.active-qty,
 .size-row input.qty:focus {
   border: 2px solid #007bff;
@@ -174,108 +138,59 @@ top: 0;
   box-shadow: 0 0 12px rgba(0,123,255,0.35);
 }
 
-/* Active size row highlight */
 .size-row.active-row {
   border: 2px solid #007bff;
   background-color: #eef6ff;
 }
 
-/* Place Order Button */
+/* ==================== PLACE ORDER BUTTON ==================== */
 #placeOrderBtn {
   position: fixed;
-  bottom: 50px;              /* above footer */
-  left: 260px;               /* sidebar width (220) + gap (20) + buffer */
-  width: calc(100% - 260px);
+  bottom: 50px; /* above footer */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
   background-color: #007bff;
-  color: white;
+  color: #fff;
   font-weight: bold;
   text-align: center;
   padding: 12px 0;
   font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   border-radius: 8px;
-  transition: all 0.2s ease-in-out;
-  z-index: 1500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
 }
-
 
 #placeOrderBtn:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translate(-50%, -2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Scroll to top button */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 130px;
-  right: 20px;
-  display: none;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 1600;
-}
-
-
-#scrollTopBtn:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
-}
-
-/* ===============================
-   CONFIRM PAGE
-   =============================== */
+/* ==================== CONFIRM.HTML SPECIFIC ==================== */
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 400px;
+  margin: 80px auto 0; /* spacing from header */
+  padding: 15px;
 }
 
-/* Confirm page order list */
-.container #orderSummary {
+.container .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Order Summary Table / Cards */
+#orderSummary {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Confirm product card layout */
-.container .product-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
-  font-size: 14px;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Confirm product card hover effect */
-.container .product-card:hover {
-  background-color: #eef6ff;
-  box-shadow: 0 3px 10px rgba(0,123,255,0.2);
-  cursor: pointer;
-}
-
-/* Each column equal width */
-.container .product-card span {
-  flex: 1;
-}
-
-.container .product-card span:nth-child(2),
-.container .product-card span:nth-child(3) {
-  text-align: center;
-}
-
-/* Total section */
-.container .total-section {
+/* Total Section */
+.total-section {
   font-weight: bold;
   font-size: 18px;
   text-align: right;
@@ -285,200 +200,103 @@ top: 0;
   border-radius: 6px;
 }
 
-/* Name input */
-.container .name-section input {
+/* Name Input */
+.name-section input {
   width: 100%;
   padding: 10px;
   font-size: 15px;
   border-radius: 6px;
   border: 1px solid #ccc;
   transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 
-.container .name-section input:focus {
+.name-section input:focus {
   border: 2px solid #007bff;
   background-color: #eaf3ff;
   outline: none;
 }
 
-/* Confirm button */
-.container #confirmButton {
-  margin-top: 15px;
+/* Confirm Button */
+#confirmButton {
+  margin-top: 10px;
   background-color: #007bff;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 12px;
   font-size: 16px;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   transition: all 0.2s ease-in-out;
 }
 
-.container #confirmButton:hover {
+#confirmButton:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* ===============================
-   FIXED HEADER & FOOTER
-   =============================== */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
-  padding: 14px 10px;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-logo {
-  position: absolute;
-  left: 15px;
-  height: 40px;
-  width: auto;
-}
-
-.header-title {
-  text-align: center;
-}
-
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  font-size: 14px;
-  z-index: 2000;
-}
-
-/* Prevent content hiding behind header & footer */
-body {
-  padding-top: 60px;
-  padding-bottom: 50px;
-}
-
-/* Push product section slightly down for visual centering */
-.product-section {
-  margin-top: 70px;
-  flex: 1;
-}
-
-/* ===============================
-   MOBILE RESPONSIVENESS
-   =============================== */
-@media screen and (max-width: 800px) {
-
-  /* Layout: remove sidebar completely */
-  .catalogue-wrapper {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  /* Product section */
-  .product-section {
-    margin-top: 20px;
-    overflow: hidden;
-  }
-
-  /* Horizontal swipe container */
-  .product-container {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* One product = one full screen */
-  .product {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 16px;
-    scroll-snap-align: start;
-  }
-
-  /* Product image */
-  .product img {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-  }
-
-  /* Quantity input */
-  .size-row input.qty {
-    width: 40px;
-  }
-
-  /* Place order button – full width, no sidebar offset */
-  #placeOrderBtn {
-    left: 0;
-    width: 100%;
-  }
-
-  /* Scroll-to-top button – stays above order button */
-  #scrollTopBtn {
-    bottom: 130px;
-    right: 20px;
-  }
-
-  /* Confirm page tweaks (unchanged logic) */
-  .container {
-    padding: 15px;
-  }
-
-  .container .product-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .container .product-card span:nth-child(2),
-  .container .product-card span:nth-child(3) {
-    text-align: left;
-  }
-
-  .container .total-section {
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .container #confirmButton {
-    font-size: 15px;
-    padding: 10px;
-  }
-}
-
-
-/* ===============================
-   THANK YOU & INVOICE DOWNLOAD
-   =============================== */
-
+/* Thank You Message */
 #thankYouMessage {
   background-color: #f2f9ff;
   border: 1px solid #cce5ff;
   border-radius: 8px;
   padding: 15px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#downloadInvoiceBtn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 #downloadInvoiceBtn:hover {
   background-color: #218838;
   transform: translateY(-1px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* ==================== MOBILE ADJUSTMENTS ==================== */
+@media screen and (max-width: 600px) {
+  .product {
+    min-height: calc(100vh - 140px);
+    padding: 12px;
+  }
+
+  .size-row input.qty {
+    width: 45px;
+  }
+
+  #placeOrderBtn {
+    width: 90%;
+    bottom: 50px;
+  }
+
+  .container {
+    margin: 70px 10px 0;
+    padding: 10px;
+  }
+
+  .total-section {
+    font-size: 16px;
+  }
+
+  #confirmButton {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .name-section input {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
