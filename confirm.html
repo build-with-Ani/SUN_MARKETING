@@ -11,25 +11,26 @@
   <span class="header-title">ORDER CONFIRMATION</span>
 </div>
 
-
 <div class="container">
-  <div id="orderSummary">
-    <!-- Product cards will be injected here by script.js -->
-  </div>
+  <div class="content-wrapper">
+    <div id="orderSummary">
+      <!-- Product cards will be injected here by script.js -->
+    </div>
 
-  <div class="total-section">
-    <p>Total: ₹<span id="totalAmount">0</span></p>
-  </div>
+    <div class="total-section">
+      <p>Total: ₹<span id="totalAmount">0</span></p>
+    </div>
 
-  <div class="name-section">
-    <input type="text" id="name" placeholder="Enter your name">
-  </div>
+    <div class="name-section">
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
 
-  <div id="confirmButton" onclick="confirmOrder()">
-    ✅ Confirm Order
-  </div>
+    <div id="confirmButton" onclick="confirmOrder()">
+      ✅ Confirm Order
+    </div>
 
-  <!-- Thank You Message (Hidden initially) -->
+    <!-- Thank You Message (Hidden initially) -->
+    <!-- Thank You Message (Hidden initially) -->
 <div id="thankYouMessage" style="display:none; margin-top:15px; text-align:center; font-size:14px;">
   <p style="margin-bottom:10px;">
     ✅ Thanks for ordering!<br>
@@ -47,6 +48,9 @@
   ">
     ⬇️ Download Invoice
   </button>
+</div>
+
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
