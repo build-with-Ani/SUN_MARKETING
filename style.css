@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   padding-top: 60px;
@@ -376,30 +380,65 @@ body {
    MOBILE RESPONSIVENESS
    =============================== */
 @media screen and (max-width: 800px) {
+
+  /* Layout: remove sidebar completely */
   .catalogue-wrapper {
     flex-direction: column;
   }
 
   .sidebar {
-    width: 100%;
-    margin-bottom: 15px;
+    display: none;
   }
 
-  #placeOrderBtn {
-    width: 100%;
-    margin-left: 0;
+  /* Product section */
+  .product-section {
+    margin-top: 20px;
+    overflow: hidden;
   }
 
+  /* Horizontal swipe container */
+  .product-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* One product = one full screen */
   .product {
-    width: 60%;
-    margin: 5px 1%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 16px;
+    scroll-snap-align: start;
   }
 
+  /* Product image */
+  .product img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  /* Quantity input */
   .size-row input.qty {
     width: 40px;
   }
 
-  /* Confirm page adjustments */
+  /* Place order button – full width, no sidebar offset */
+  #placeOrderBtn {
+    left: 0;
+    width: 100%;
+  }
+
+  /* Scroll-to-top button – stays above order button */
+  #scrollTopBtn {
+    bottom: 130px;
+    right: 20px;
+  }
+
+  /* Confirm page tweaks (unchanged logic) */
   .container {
     padding: 15px;
   }
@@ -425,6 +464,7 @@ body {
     padding: 10px;
   }
 }
+
 
 /* ===============================
    THANK YOU & INVOICE DOWNLOAD
