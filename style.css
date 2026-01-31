@@ -65,13 +65,14 @@ body {
   align-items: center;
   width: 100%;
   gap: 20px;
+  padding-top: 20px;
 }
 
 /* Product Card */
 .product {
   width: 90%;
   max-width: 400px;
-  min-height: calc(100vh - 140px); /* viewport minus header/footer */
+  min-height: auto; /* card height adjusts to content */
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.15);
@@ -268,7 +269,7 @@ body {
 /* ==================== MOBILE ADJUSTMENTS ==================== */
 @media screen and (max-width: 600px) {
   .product {
-    min-height: calc(100vh - 140px);
+    
     padding: 12px;
   }
 
