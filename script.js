@@ -105,12 +105,18 @@ function confirmOrder() {
   }
 
   /* ---------- SHOW THANK YOU MESSAGE ---------- */
-  document.getElementById('thankYouMessage').style.display = 'block';
-  document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
+  const thankYouMsg = document.getElementById('thankYouMessage');
+  thankYouMsg.style.display = 'block';
+
+  /* ---------- AUTO SCROLL TO THANK YOU ---------- */
+  setTimeout(() => {
+    thankYouMsg.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, 100); // slight delay to ensure render
 
   /* ---------- DISABLE CONFIRM BUTTON ---------- */
-  document.getElementById('confirmButton').style.pointerEvents = 'none';
-  document.getElementById('confirmButton').style.opacity = '0.6';
+  const confirmBtn = document.getElementById('confirmButton');
+  confirmBtn.style.pointerEvents = 'none';
+  confirmBtn.style.opacity = '0.6';
 
   /* ---------- EMAILJS SEND ---------- */
   sendOrderEmail(name, data);
