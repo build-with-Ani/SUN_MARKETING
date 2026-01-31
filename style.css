@@ -284,6 +284,7 @@ body {
   background-color: #0056b3;
   transform: translateY(-1px);
 }
+
 /* ==================== MOBILE ADJUSTMENTS ==================== */
 @media screen and (max-width: 600px) {
   .product {
@@ -319,4 +320,3 @@ body {
     padding: 8px;
   }
 }
-
